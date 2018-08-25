@@ -53,11 +53,11 @@
 
 (put 'downcase-region 'disabled nil)
 
-;; Add melpa and elpy package lists
+;; Add melpa package list
 (require 'package)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
-(add-to-list 'package-archives
-             '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+
+;; enable elpy. Do not forget to install the external dependencies
 (elpy-enable)
 
 ;; configure emacs auto-saves
