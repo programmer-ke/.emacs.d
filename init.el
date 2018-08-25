@@ -31,9 +31,11 @@
 
 ;; install packages
 ;; ----------------
-;; this works for emacs 25.1+
-(package-install-selected-packages)
-;; this works for emacs > 25.1
+;; The following would work for emacs versions 25.1+
+;; (package-install-selected-packages)
+;;
+;; This works for emacs < 25.1
+;; TODO: dynamically check version
 (dolist (package package-selected-packages)
   (unless (package-installed-p package)
     (package-install package)))
