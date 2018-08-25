@@ -1,6 +1,10 @@
-To clone:
+Portable Emacs Environment
 
+Tested on emacs 26
+
+To clone:
 - git clone <this repo> ~/.emacs.d
-- mv ~/.emacs.d/.emacs.sample ~/.emacs (system specific config that can be modified)
+- cp ~/.emacs.d/.emacs.sample ~/.emacs (system specific config that can be modified)
+
 
 

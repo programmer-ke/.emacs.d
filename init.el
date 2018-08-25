@@ -9,7 +9,7 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
-(setq package-list '(elpy fill-column-indicator js2-mode))
+(setq package-list '(fill-column-indicator js2-mode elpy))
 
 ; fetch the list of packages available
 (unless package-archive-contents
