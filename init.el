@@ -25,6 +25,19 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Andale Mono" :foundry "unknown" :slant normal :weight normal :height 140 :width normal)))))
 
+; fetch the list of packages available
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; install packages
+;; ----------------
+;; this works for emacs 25.1+
+(package-install-selected-packages)
+;; this works for emacs > 25.1
+(dolist (package package-selected-packages)
+  (unless (package-installed-p package)
+    (package-install package)))
+
 ;; configure line length indicator
 (require 'fill-column-indicator)
 (define-globalized-minor-mode
