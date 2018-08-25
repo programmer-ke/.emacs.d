@@ -1,0 +1,15 @@
+;; Load standard configuration
+(load-file "~/.emacs.d/init.el")
+
+;; load sbcl
+(setq inferior-lisp-program "/usr/local/bin/sbcl")
+;; quicklisp helper
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+
+;; Start terminals and load saved buffers
+(defun bootstrap-me ()
+  (interactive)
+  (start-term "cws")
+  (start-term "other")
+  (start-term "ping")
+  (desktop-read))

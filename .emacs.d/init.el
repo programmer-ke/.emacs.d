@@ -16,7 +16,7 @@
    ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
  '(custom-enabled-themes (quote (deeper-blue)))
  '(inhibit-startup-screen t)
- '(package-selected-packages (quote (elpy fill-column-indicator auto-complete js2-mode)))
+ '(package-selected-packages (quote (elpy fill-column-indicator js2-mode)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -31,11 +31,6 @@
  global-fci-mode fci-mode (lambda () (fci-mode 1)))
 (global-fci-mode t)
 
-;; load sbcl
-(setq inferior-lisp-program "/usr/local/bin/sbcl")
-;; quicklisp helper
-(load (expand-file-name "~/quicklisp/slime-helper.el"))
-
 ;; disable toolbar
 (tool-bar-mode -1)
 
@@ -45,21 +40,6 @@
   (interactive "Terminal emulator name: ")
   (ansi-term "/bin/bash")
   (rename-buffer buffer-name t))
-
-;; Start terminals and load saved buffers
-(defun bootstrap-me ()
-  (interactive)
-  (start-term "cws")
-  (start-term "other")
-  (start-term "pesa")
-  (start-term "ussd")
-  (start-term "ussd-simulator")
-  (start-term "sms")
-  (start-term "status")
-  (start-term "consul")
-  (start-term "partner-portal")
-  (start-term "ping")
-  (desktop-read))
 
 ;; js2-mode - javascript editing as a major mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
@@ -78,16 +58,7 @@
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (add-to-list 'package-archives
              '("elpy" . "http://jorgenschaefer.github.io/packages/"))
-(package-initialize)
 (elpy-enable)
-
-;; configure auto-complete
-(require 'auto-complete)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-(require 'auto-complete-config)
-(ac-config-default)
-(global-auto-complete-mode t)
-
 
 ;; configure emacs auto-saves
 (setq backup-directory-alist `(("." . "~/.emacs-saves")))
@@ -96,7 +67,3 @@
   kept-new-versions 6
   kept-old-versions 2
   version-control t)
-
-
-;; mac - use cmd key as ctrl key
-(setq mac-command-modifier 'control)

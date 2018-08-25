@@ -1,1 +1,7 @@
 *~
+*.elc
+tramp
+.emacs.desktop*
+elpa
+auto-save-list
+ac-comphist.dat
