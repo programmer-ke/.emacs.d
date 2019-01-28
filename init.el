@@ -32,7 +32,7 @@
 ;; easily start a new named terminal emulator
 (defun start-term (buffer-name)
   "Start a bash terminal and rename buffer."
-  (interactive "Terminal emulator name: ")
+  (interactive "sTerminal emulator name: ")
   (ansi-term "/bin/bash")
   (rename-buffer buffer-name t))
 
