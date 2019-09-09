@@ -9,9 +9,10 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
-(setq package-list '(fill-column-indicator js2-mode elpy))
+(setq package-list '(fill-column-indicator js2-mode elpy ensime csv-mode))
 
 ; fetch the list of packages available
+; Remove the elpa/archive directory to force a refresh
 (unless package-archive-contents
   (package-refresh-contents))
 
