@@ -9,10 +9,10 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
-(setq package-list '(fill-column-indicator js2-mode elpy csv-mode))
+(setq package-list '(fill-column-indicator js2-mode elpy csv-mode groovy-mode terraform-mode ess))
 
-; fetch the list of packages available
-; Remove the elpa/archive directory to force a refresh
+;; fetch the list of packages available
+;; Remove the elpa/archive directory to force a refresh
 (unless package-archive-contents
   (package-refresh-contents))
 
@@ -59,3 +59,6 @@
   kept-new-versions 6
   kept-old-versions 2
   version-control t)
+
+;; start emacs server (for use with emacsclient)
+(server-start)
