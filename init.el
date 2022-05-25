@@ -9,10 +9,10 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
-(setq package-list '(fill-column-indicator js2-mode csv-mode eglot company yasnippet markdown-mode))
+(setq package-list '(fill-column-indicator js2-mode csv-mode eglot company yasnippet markdown-mode ess terraform-mode groovy-mode))
 
-; fetch the list of packages available
-; Remove the elpa/archive directory to force a refresh
+;; fetch the list of packages available
+;; Remove the elpa/archive directory to force a refresh
 (unless package-archive-contents
   (package-refresh-contents))
 
@@ -63,3 +63,6 @@
 ;; mark variables to be set in .dir-locals.el as safe
 (put 'eglot-server-programs 'safe-local-variable 'listp)
 (put 'python-shell-interpreter 'safe-local-variable 'stringp)
+
+;; start emacs server (for use with emacsclient)
+(server-start)
