@@ -1,0 +1,2 @@
+((python-mode . ((eglot-server-programs    . ((python-mode "/path/to/virtualenv/bin/pyls")))
+                 (python-shell-interpreter . "/path/to/virtualenv/bin/python"))))

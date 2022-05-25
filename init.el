@@ -9,7 +9,7 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
-(setq package-list '(fill-column-indicator js2-mode elpy csv-mode))
+(setq package-list '(fill-column-indicator js2-mode csv-mode eglot company yasnippet markdown-mode))
 
 ; fetch the list of packages available
 ; Remove the elpa/archive directory to force a refresh
@@ -49,9 +49,6 @@
 
 (put 'downcase-region 'disabled nil)
 
-;; enable elpy. Do not forget to install the external dependencies
-(elpy-enable)
-
 ;; configure emacs auto-saves
 (setq backup-directory-alist `(("." . "~/.emacs-saves")))
 (setq backup-by-copying t)
@@ -59,3 +56,10 @@
   kept-new-versions 6
   kept-old-versions 2
   version-control t)
+
+;; long live python 3
+(setq python-shell-interpreter "python3")
+
+;; mark variables to be set in .dir-locals.el as safe
+(put 'eglot-server-programs 'safe-local-variable 'listp)
+(put 'python-shell-interpreter 'safe-local-variable 'stringp)
