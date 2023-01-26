@@ -9,7 +9,8 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
-(setq package-list '(fill-column-indicator js2-mode csv-mode eglot company yasnippet markdown-mode ess terraform-mode groovy-mode))
+(setq package-list
+      '(fill-column-indicator js2-mode csv-mode eglot company yasnippet markdown-mode ess terraform-mode groovy-mode solidity-mode))
 
 ;; fetch the list of packages available
 ;; Remove the elpa/archive directory to force a refresh
@@ -66,3 +67,13 @@
 
 ;; start emacs server (for use with emacsclient)
 (server-start)
+
+;; Setup solidity
+(require 'solidity-mode)
+
+;; enable org-mode source languages
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(
+   (shell . t)
+   (python . t)))
