@@ -10,10 +10,10 @@
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
 (setq package-list
-      '(fill-column-indicator js2-mode csv-mode eglot company yasnippet markdown-mode ess terraform-mode groovy-mode solidity-mode))
+      '(fill-column-indicator js2-mode csv-mode company yasnippet yasnippet-snippets markdown-mode ess terraform-mode groovy-mode solidity-mode typescript-mode))
 
 ;; fetch the list of packages available
-;; Remove the elpa/archive directory to force a refresh
+;; Remove the elpa/archives directory to force a refresh
 (unless package-archive-contents
   (package-refresh-contents))
 
@@ -38,15 +38,11 @@
   (ansi-term "/bin/bash")
   (rename-buffer buffer-name t))
 
-;; js2-mode - javascript editing as a major mode
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+;; install js2 as a minor mode just for JS linting
+(add-hook 'js-mode-hook 'js2-minor-mode)
 
 ;; manually installed local packages
 (add-to-list 'load-path "~/.emacs.d/local-packages/")
-
-;; yaml mode
-(require 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
 (put 'downcase-region 'disabled nil)
 
@@ -77,3 +73,19 @@
  '(
    (shell . t)
    (python . t)))
+
+;; Set list of agenda files
+(setq org-agenda-files '("~/digital-garden"))
+
+;; enable company mode globally
+(global-company-mode)
+
+;; setup yasnippet
+(require 'yasnippet)
+(yas-global-mode 1)
+
+;; configure automatic modes based on file extension
+(require 'yaml-mode)
+
+(add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . js-jsx-mode))
