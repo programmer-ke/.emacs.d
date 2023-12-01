@@ -89,3 +89,28 @@
 
 (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . js-jsx-mode))
+
+;; Easily start/stop the scaffold eth commands in separate terminals
+;; Ensure you're in the scaffold-eth root directory
+(defun scaffold-eth/stop ()
+  (interactive)
+  (ignore-errors (kill-buffer "*yarn-deploy*"))
+  (ignore-errors (kill-buffer "*yarn-start*"))
+  (ignore-errors (kill-buffer "*yarn-chain*")))
+
+(defun scaffold-eth/start ()
+  (interactive)
+
+  (if (or
+       (get-buffer "*yarn-chain*")
+       (get-buffer "*yarn-start*")
+       (get-buffer "*yarn-deploy*"))
+      (message "Already running, use the stop command first")
+    (progn
+      (ansi-term "/bin/bash" "yarn-chain")
+      (comint-send-string "*yarn-chain*" "yarn chain\n")
+      (sleep-for 3) ; give the chain a few seconds to go up
+      (ansi-term "/bin/bash" "yarn-start")
+      (comint-send-string "*yarn-start*" "yarn start\n")
+      (ansi-term "/bin/bash" "yarn-deploy")
+      (comint-send-string "*yarn-deploy*" "yarn deploy\n"))))
