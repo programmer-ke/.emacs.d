@@ -9,3 +9,5 @@ session.*
 url
 abbrev_defs
 games/
+.trello
+request/

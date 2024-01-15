@@ -10,7 +10,7 @@
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
 (setq package-list
-      '(fill-column-indicator js2-mode csv-mode company yasnippet yasnippet-snippets markdown-mode ess terraform-mode groovy-mode solidity-mode typescript-mode))
+      '(fill-column-indicator js2-mode csv-mode company yasnippet yasnippet-snippets markdown-mode ess terraform-mode groovy-mode solidity-mode typescript-mode elfeed org-trello))
 
 ;; fetch the list of packages available
 ;; Remove the elpa/archives directory to force a refresh
@@ -67,6 +67,14 @@
 ;; Setup solidity
 (require 'solidity-mode)
 
+;; Setup js-comint for interactive JS dev
+(require 'js-comint)
+;; Copying python-mode bindings
+(define-key js-mode-map (kbd "C-c C-e") 'js-comint-send-last-sexp)
+(define-key js-mode-map (kbd "C-c C-c") 'js-comint-send-buffer)
+(define-key js-mode-map (kbd "C-c C-r") 'js-comint-send-region)
+(define-key js-mode-map (kbd "C-c C-z") 'js-comint-start-or-switch-to-repl)
+
 ;; enable org-mode source languages
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -114,3 +122,17 @@
       (comint-send-string "*yarn-start*" "yarn start\n")
       (ansi-term "/bin/bash" "yarn-deploy")
       (comint-send-string "*yarn-deploy*" "yarn deploy\n"))))
+
+;; RSS subscriptions via elfeed
+(setq elfeed-feeds
+      '(("https://programmer.ke/index.xml" mine)
+	("https://osanseviero.github.io/hackerllama/blog/index.xml" ml)
+	("https://nullprogram.com/feed/" skeeto emacs)
+	("https://lukesmith.xyz/index.xml" lukesmith)))
+
+
+;; setup org-trello
+(require 'org-trello)
+(custom-set-variables '(org-trello-files '("~/trello/side_projects.org" "~/trello/errands_todos_life.org" "~/trello/purposeful_goals.org" "~/trello/motorcycle_trip_ideas.org")))
+;; todo: activate buffer manually for .trello.org files instead:
+;; https://github.com/org-trello/org-trello/issues/249#issuecomment-303229131
