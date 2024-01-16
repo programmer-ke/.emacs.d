@@ -123,16 +123,20 @@
       (ansi-term "/bin/bash" "yarn-deploy")
       (comint-send-string "*yarn-deploy*" "yarn deploy\n"))))
 
+;; setup org-trello
+(require 'org-trello)
+;; activate org-trello by file extenstion .trello.org
+;; https://github.com/org-trello/org-trello/issues/249#issuecomment-303229131
+(defun my/org-mode-hook-org-trello-mode ()
+  (when (and (buffer-file-name)
+             (string-match "\\.trello.org$" (buffer-file-name)))
+      (message "Turning on org-trello in %s" (buffer-file-name))
+      (org-trello-mode)))
+(add-hook 'org-mode-hook #'my/org-mode-hook-org-trello-mode)
+
 ;; RSS subscriptions via elfeed
 (setq elfeed-feeds
       '(("https://programmer.ke/index.xml" mine)
 	("https://osanseviero.github.io/hackerllama/blog/index.xml" ml)
 	("https://nullprogram.com/feed/" skeeto emacs)
 	("https://lukesmith.xyz/index.xml" lukesmith)))
-
-
-;; setup org-trello
-(require 'org-trello)
-(custom-set-variables '(org-trello-files '("~/trello/side_projects.org" "~/trello/errands_todos_life.org" "~/trello/purposeful_goals.org" "~/trello/motorcycle_trip_ideas.org")))
-;; todo: activate buffer manually for .trello.org files instead:
-;; https://github.com/org-trello/org-trello/issues/249#issuecomment-303229131
