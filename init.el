@@ -10,7 +10,10 @@
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
 (setq package-list
-      '(fill-column-indicator js2-mode csv-mode company yasnippet yasnippet-snippets markdown-mode ess terraform-mode groovy-mode solidity-mode typescript-mode elfeed org-trello))
+      '(fill-column-indicator
+	js2-mode csv-mode company yasnippet yasnippet-snippets
+	markdown-mode ess terraform-mode groovy-mode solidity-mode
+	typescript-mode elfeed org-trello python-black pyvenv gptel))
 
 ;; fetch the list of packages available
 ;; Remove the elpa/archives directory to force a refresh
@@ -47,7 +50,7 @@
 (put 'downcase-region 'disabled nil)
 
 ;; configure emacs auto-saves
-(setq backup-directory-alist `(("." . "~/.emacs-saves")))
+(setq backup-directory-alist `(("." . "~/.autosaves-emacs")))
 (setq backup-by-copying t)
 (setq delete-old-versions t
   kept-new-versions 6
@@ -84,6 +87,9 @@
 
 ;; Set list of agenda files
 (setq org-agenda-files '("~/digital-garden"))
+
+;; disable spaces added in source code blocks
+(setq org-edit-src-content-indentation 0)
 
 ;; enable company mode globally
 (global-company-mode)
@@ -139,4 +145,10 @@
       '(("https://programmer.ke/index.xml" mine)
 	("https://osanseviero.github.io/hackerllama/blog/index.xml" ml)
 	("https://nullprogram.com/feed/" skeeto emacs)
+	("https://micronews.debian.org/feeds/feed.rss" debian-news)
+	("https://world.hey.com/dhh/feed.atom" dhh)
+	("https://www.answer.ai/index.xml" answer-ai)
+	("https://third-bit.com/atom.xml" third-bit)
+	("https://www.openmymind.net/atom.xml" openmymind)
 	("https://lukesmith.xyz/index.xml" lukesmith)))
+
