@@ -152,3 +152,6 @@
 	("https://www.openmymind.net/atom.xml" openmymind)
 	("https://lukesmith.xyz/index.xml" lukesmith)))
 
+;; load gptel config
+(load-file "~/.emacs.d/gptel_init.el")
+
