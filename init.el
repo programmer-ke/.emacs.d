@@ -155,3 +155,5 @@
 ;; load gptel config
 (load-file "~/.emacs.d/gptel_init.el")
 
+;; custom key bindings
+(global-set-key "g" 'gptel-send)

@@ -12,10 +12,14 @@
 
 
 ;; mistral ai
-(gptel-make-openai "MistralAI"           ;Any name you want
+(gptel-make-openai "mistralAI"           ;Any name you want
   :host "api.mistral.ai"
   :key (getenv "MISTRAL_API_KEY")              ;can be a function that returns the key
   :endpoint "/v1/chat/completions"
   :stream t
   :models '(
             open-mistral-nemo))
+
+(setq
+ gptel-default-mode 'org-mode
+ gptel-track-media t)
