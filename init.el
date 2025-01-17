@@ -13,7 +13,8 @@
       '(fill-column-indicator
 	js2-mode csv-mode company yasnippet yasnippet-snippets
 	markdown-mode ess terraform-mode groovy-mode solidity-mode
-	typescript-mode elfeed org-trello python-black pyvenv gptel))
+	typescript-mode elfeed org-trello python-black pyvenv gptel
+	dot-env))
 
 ;; fetch the list of packages available
 ;; Remove the elpa/archives directory to force a refresh
@@ -24,6 +25,11 @@
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
+
+;; Read .env variables
+(require 'dot-env)
+(setq dot-env-filepath "~/.env")
+(dot-env-config)
 
 ;; configure line length indicator
 (require 'fill-column-indicator)
@@ -160,4 +166,3 @@
 
 ;; custom key bindings
 (global-set-key "g" 'gptel-send)
-

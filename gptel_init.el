@@ -4,7 +4,7 @@
  gptel-backend
  (gptel-make-openai "akash-chat"           ;Any name you want
    :host "chatapi.akash.network"
-   :key (getenv "AKASH_CHAT_API_KEY")
+   :key (dot-env-get 'AKASH_CHAT_API_KEY)
    :endpoint "/api/v1/chat/completions"
    :stream t
    :models '(
@@ -14,7 +14,7 @@
 ;; mistral ai
 (gptel-make-openai "mistralAI"           ;Any name you want
   :host "api.mistral.ai"
-  :key (getenv "MISTRAL_API_KEY")              ;can be a function that returns the key
+  :key (dot-env-get 'MISTRAL_API_KEY)              ;can be a function that returns the key
   :endpoint "/v1/chat/completions"
   :stream t
   :models '(
