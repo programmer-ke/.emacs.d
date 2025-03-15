@@ -8,17 +8,19 @@
    :endpoint "/api/v1/chat/completions"
    :stream t
    :models '(
-	     Meta-Llama-3-1-405B-Instruct-FP8)))
+	     Meta-Llama-3-1-405B-Instruct-FP8
+	     DeepSeek-R1)))
 
 
 ;; mistral ai
-(gptel-make-openai "mistralAI"           ;Any name you want
+(gptel-make-openai "mistral-ai"           ;Any name you want
   :host "api.mistral.ai"
   :key (dot-env-get 'MISTRAL_API_KEY)              ;can be a function that returns the key
   :endpoint "/v1/chat/completions"
   :stream t
   :models '(
-            open-mistral-nemo))
+            open-mistral-nemo
+	    codestral-latest))
 
 (setq
  gptel-default-mode 'org-mode
