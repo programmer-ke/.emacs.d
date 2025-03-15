@@ -6,7 +6,6 @@
 (package-initialize)
 
 ;; Add melpa package list
-(require 'package)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
 (setq package-list
@@ -14,7 +13,7 @@
 	js2-mode csv-mode company yasnippet yasnippet-snippets
 	markdown-mode ess terraform-mode groovy-mode solidity-mode
 	typescript-mode elfeed org-trello python-black pyvenv gptel
-	dot-env))
+	dot-env htmlize))
 
 ;; fetch the list of packages available
 ;; Remove the elpa/archives directory to force a refresh
