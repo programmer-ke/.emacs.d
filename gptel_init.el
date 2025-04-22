@@ -1,14 +1,14 @@
 ;; Akash Chat as the default
 (setq
- gptel-model 'Meta-Llama-3-1-405B-Instruct-FP8
+ gptel-model 'Meta-Llama-4-Maverick-17B-128E-Instruct-FP8
  gptel-backend
  (gptel-make-openai "akash-chat"           ;Any name you want
    :host "chatapi.akash.network"
    :key (dot-env-get 'AKASH_CHAT_API_KEY)
    :endpoint "/api/v1/chat/completions"
    :stream t
-   :models '(
-	     Meta-Llama-3-1-405B-Instruct-FP8
+   :models '(Meta-Llama-4-Maverick-17B-128E-Instruct-FP8
+	     DeepSeek-R1-Distill-Llama-70B
 	     DeepSeek-R1)))
 
 

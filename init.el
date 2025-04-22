@@ -164,4 +164,4 @@
 (require 'copilot)
 
 ;; custom key bindings
-(global-set-key "g" 'gptel-send)
+(keymap-global-set "C-c g" 'gptel-menu)
