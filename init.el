@@ -96,6 +96,24 @@
 ;; disable spaces added in source code blocks
 (setq org-edit-src-content-indentation 0)
 
+
+(defun blog/get-draft-filename (parent-directory)
+  "Return the name for a draft blog post composition
+PARENT-DIRECTORY - the directory in which the file will be placed"
+  (interactive)
+  (let ((name (read-string "Filename: ")))
+    (expand-file-name (format "%.draft.org" name) parent-directory)))
+
+
+;; setup org capture templates
+(setq org-capture-templates
+      '(("d" "Templates for the digital garden")
+	("dp" "post" plain
+	 (file (lambda ()
+		 (concat "~/digital-garden/" (blog/get-draft-filename))))
+	 (file  "~/projects/digital-garden-blog/org-templates/draft.org"))))
+
+
 ;; enable company mode globally
 (global-company-mode)
 
@@ -136,6 +154,7 @@
 
 ;; setup org-trello
 (require 'org-trello)
+
 ;; activate org-trello by file extenstion .trello.org
 ;; https://github.com/org-trello/org-trello/issues/249#issuecomment-303229131
 (defun my/org-mode-hook-org-trello-mode ()
