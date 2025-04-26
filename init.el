@@ -97,12 +97,11 @@
 (setq org-edit-src-content-indentation 0)
 
 
-(defun blog/get-draft-filename (parent-directory)
-  "Return the name for a draft blog post composition
-PARENT-DIRECTORY - the directory in which the file will be placed"
+(defun blog/get-draft-filename ()
+  "Return the name for a draft blog post composition"
   (interactive)
   (let ((name (read-string "Filename: ")))
-    (expand-file-name (format "%.draft.org" name) parent-directory)))
+    (format "%s.draft.org" name)))
 
 
 ;; setup org capture templates
