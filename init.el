@@ -13,7 +13,7 @@
 	js2-mode csv-mode company yasnippet yasnippet-snippets
 	markdown-mode ess terraform-mode groovy-mode solidity-mode
 	typescript-mode elfeed org-trello python-black pyvenv gptel
-	dot-env htmlize))
+	dot-env htmlize go-mode protobuf-mode))
 
 ;; fetch the list of packages available
 ;; Remove the elpa/archives directory to force a refresh
@@ -29,6 +29,9 @@
 (require 'dot-env)
 (setq dot-env-filepath "~/.env")
 (dot-env-config)
+
+;; Activate protobuf-mode
+(require 'protobuf-mode)
 
 ;; configure line length indicator
 (require 'fill-column-indicator)
@@ -103,7 +106,6 @@
   (let ((name (read-string "Filename: ")))
     (format "%s.draft.org" name)))
 
-
 ;; setup org capture templates
 (setq org-capture-templates
       '(("d" "Templates for the digital garden")
@@ -111,7 +113,6 @@
 	 (file (lambda ()
 		 (concat "~/digital-garden/" (blog/get-draft-filename))))
 	 (file  "~/projects/digital-garden-blog/org-templates/draft.org"))))
-
 
 ;; enable company mode globally
 (global-company-mode)
@@ -173,6 +174,7 @@
 	("https://www.answer.ai/index.xml" answer-ai)
 	("https://third-bit.com/atom.xml" third-bit)
 	("https://www.openmymind.net/atom.xml" openmymind)
+	("https://archive.casouri.cc/note/atom.xml" casouri emacs)
 	("https://lukesmith.xyz/index.xml" lukesmith)))
 
 ;; load gptel config
