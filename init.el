@@ -5,17 +5,24 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-;; Add melpa package list
+;; Add melpa-stable and melpa package lists
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+
+(setq package-archive-priorities
+      '(("gnu" . 8)
+	("nongnu" . 9)
+	("melpa-stable" . 10)
+	("melpa" . 7)))
 
 (setq package-list
       '(fill-column-indicator
 	js2-mode csv-mode company yasnippet yasnippet-snippets
 	markdown-mode ess terraform-mode groovy-mode solidity-mode
 	typescript-mode elfeed org-trello python-black pyvenv gptel
-	dot-env htmlize go-mode protobuf-mode))
+	dot-env htmlize go-mode protobuf-mode vterm))
 
-;; fetch the list of packages available
+;; Fetch the list of packages available
 ;; Remove the elpa/archives directory to force a refresh
 (unless package-archive-contents
   (package-refresh-contents))
@@ -32,6 +39,12 @@
 
 ;; Activate protobuf-mode
 (require 'protobuf-mode)
+
+;; Activate vterm
+(require 'vterm)
+
+;; short answers y/n
+(setq use-short-answers t)
 
 ;; configure line length indicator
 (require 'fill-column-indicator)

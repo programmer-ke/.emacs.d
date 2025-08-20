@@ -9,7 +9,7 @@
    :stream t
    :models '(Meta-Llama-4-Maverick-17B-128E-Instruct-FP8
 	     DeepSeek-R1-Distill-Llama-70B
-	     DeepSeek-R1)))
+	     DeepSeek-R1-0528)))
 
 
 ;; mistral ai
