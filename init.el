@@ -20,7 +20,7 @@
 	js2-mode csv-mode company yasnippet yasnippet-snippets
 	markdown-mode ess terraform-mode groovy-mode solidity-mode
 	typescript-mode elfeed org-trello python-black pyvenv gptel
-	dot-env htmlize go-mode protobuf-mode vterm))
+	dot-env htmlize go-mode protobuf-mode vterm eat))
 
 ;; Fetch the list of packages available
 ;; Remove the elpa/archives directory to force a refresh
