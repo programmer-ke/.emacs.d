@@ -62,6 +62,13 @@
   (ansi-term "/bin/bash")
   (rename-buffer buffer-name t))
 
+;; start a new eat terminal
+(defun new-eat-terminal ()
+  """Start a new eat terminal"""
+  (interactive)
+  (let ((current-prefix-arg '(4)))  ; Non-numeric raw prefix for a single C-u
+    (call-interactively #'eat)))
+
 ;; install js2 as a minor mode just for JS linting
 (add-hook 'js-mode-hook 'js2-minor-mode)
 
@@ -198,3 +205,4 @@
 
 ;; custom key bindings
 (keymap-global-set "C-c g" 'gptel-menu)
+(keymap-global-set "C-c e" 'new-eat-terminal)
