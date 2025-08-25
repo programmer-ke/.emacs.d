@@ -138,7 +138,7 @@
 (require 'yaml-mode)
 
 (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . js-jsx-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
 
 ;; Easily start/stop the scaffold eth commands in separate terminals
 ;; Ensure you're in the scaffold-eth root directory
