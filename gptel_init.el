@@ -8,8 +8,9 @@
    :endpoint "/api/v1/chat/completions"
    :stream t
    :models '(Meta-Llama-4-Maverick-17B-128E-Instruct-FP8
-	     DeepSeek-R1-Distill-Llama-70B
-	     DeepSeek-R1-0528)))
+	     DeepSeek-R1-Distill-Qwen-32B
+	     Qwen3-235B-A22B-Instruct-2507-FP8
+	     DeepSeek-V3-1)))
 
 
 ;; mistral ai
