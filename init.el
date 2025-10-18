@@ -145,7 +145,8 @@
 (require 'yaml-mode)
 
 (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
 
 ;; Easily start/stop the scaffold eth commands in separate terminals
 ;; Ensure you're in the scaffold-eth root directory
@@ -206,3 +207,15 @@
 ;; custom key bindings
 (keymap-global-set "C-c g" 'gptel-menu)
 (keymap-global-set "C-c e" 'new-eat-terminal)
+
+;; set treesitter grammer definitions
+(setq treesit-language-source-alist
+      '((javascript "https://github.com/tree-sitter/tree-sitter-javascript"
+		    "v0.23.1")
+	(jsdoc "https://github.com/tree-sitter/tree-sitter-jsdoc" "v0.23.2")
+	(bash "https://github.com/tree-sitter/tree-sitter-bash" "v0.23.3")
+	(python "https://github.com/tree-sitter/tree-sitter-python" "v0.23.6")
+	(typescript "https://github.com/tree-sitter/tree-sitter-typescript"
+		    "v0.23.2" "typescript/src")
+	(tsx "https://github.com/tree-sitter/tree-sitter-typescript"
+	     "v0.23.2" "tsx/src")))

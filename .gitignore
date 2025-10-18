@@ -13,3 +13,5 @@ games/
 request/
 transient/
 bookmarks
+eln-cache
+tree-sitter
