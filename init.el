@@ -20,7 +20,7 @@
 	js2-mode csv-mode company yasnippet yasnippet-snippets
 	markdown-mode ess terraform-mode groovy-mode solidity-mode
 	typescript-mode elfeed org-trello python-black pyvenv gptel
-	dot-env htmlize go-mode protobuf-mode vterm eat))
+	dot-env htmlize go-mode protobuf-mode vterm eat company-solidity))
 
 ;; Fetch the list of packages available
 ;; Remove the elpa/archives directory to force a refresh
@@ -88,6 +88,11 @@
 ;; long live python 3
 (setq python-shell-interpreter "python3")
 
+;; add to eglot server programs
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+               '(solidity-mode . ("nomicfoundation-solidity-language-server" "--stdio"))))
+
 ;; mark variables to be set in .dir-locals.el as safe
 (put 'eglot-server-programs 'safe-local-variable 'listp)
 (put 'python-shell-interpreter 'safe-local-variable 'stringp)
@@ -97,6 +102,7 @@
 
 ;; Setup solidity
 (require 'solidity-mode)
+(require 'company-solidity)
 
 ;; Setup js-comint for interactive JS dev
 (require 'js-comint)
