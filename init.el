@@ -59,8 +59,7 @@
 (defun start-term (buffer-name)
   "Start a bash terminal and rename buffer."
   (interactive "sTerminal emulator name: ")
-  (ansi-term "/bin/bash")
-  (rename-buffer buffer-name t))
+  (vterm buffer-name))
 
 ;; start a new eat terminal
 (defun new-eat-terminal ()
@@ -166,9 +165,9 @@
   (interactive)
 
   (if (or
-       (get-buffer "*yarn-chain*")
-       (get-buffer "*yarn-start*")
-       (get-buffer "*yarn-deploy*"))
+       (get-buffer "yarn-chain")
+       (get-buffer "yarn-start")
+       (get-buffer "yarn-deploy"))
       (message "Already running, use the stop command first")
     (progn
       (vterm "yarn-chain")
