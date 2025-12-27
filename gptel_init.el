@@ -1,17 +1,26 @@
-;; Akash Chat as the default
-(setq
- gptel-model 'Meta-Llama-4-Maverick-17B-128E-Instruct-FP8
- gptel-backend
- (gptel-make-openai "akash-chat"           ;Any name you want
-   :host "chatapi.akash.network"
-   :key (dot-env-get 'AKASH_CHAT_API_KEY)
-   :endpoint "/api/v1/chat/completions"
-   :stream t
-   :models '(Meta-Llama-4-Maverick-17B-128E-Instruct-FP8
-	     DeepSeek-R1-Distill-Qwen-32B
-	     Qwen3-235B-A22B-Instruct-2507-FP8
-	     DeepSeek-V3-1)))
+;; Open Router as the default
+(setq gptel-model   'deepseek/deepseek-v3.2
+      gptel-backend
+      (gptel-make-openai "OpenRouter"               ;Any name you want
+        :host "openrouter.ai"
+        :endpoint "/api/v1/chat/completions"
+        :stream t
+        :key (dot-env-get 'OPENROUTER_API_KEY)
+        :models '(deepseek/deepseek-v3.2
+		  deepseek/deepseek-v3.2-speciale
+		  x-ai/grok-4.1-fast
+		  x-ai/grok-code-fast-1
+		  google/gemini-3-pro-preview)))
 
+
+(gptel-make-openai "akash-ml"           ;Any name you want
+  :host "api.akashml.com"
+  :key (dot-env-get 'AKASH_ML_API_KEY)
+  :endpoint "v1/chat/completions"
+  :stream t
+  :models '(meta-llama/Llama-3.3-70B-Instruct
+	    deepseek-ai/DeepSeek-V3.2-Speciale
+	    deepseek-ai/DeepSeek-V3.1))
 
 ;; mistral ai
 (gptel-make-openai "mistral-ai"           ;Any name you want
