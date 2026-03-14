@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: aider config file
+# key: aider
+# --
+cat > .aider.conf.yml <<EOF
+---
+read:
+  - AkashBMEDetailedTestPlan.md
+
+git-commit-verify: true
+auto-commits: false
+EOF
