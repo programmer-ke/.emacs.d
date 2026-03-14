@@ -43,6 +43,9 @@
 ;; Activate vterm
 (require 'vterm)
 
+;; clear vterm delay to improve responsiveness
+(setq vterm-timer-delay 0.01)
+
 ;; short answers y/n
 (setq use-short-answers t)
 

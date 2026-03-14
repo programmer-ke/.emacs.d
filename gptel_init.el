@@ -1,7 +1,7 @@
 ;; Open Router as the default
 (setq gptel-model   'deepseek/deepseek-v3.2
       gptel-backend
-      (gptel-make-openai "OpenRouter"               ;Any name you want
+      (gptel-make-openai "openrouter"               ;Any name you want
         :host "openrouter.ai"
         :endpoint "/api/v1/chat/completions"
         :stream t
@@ -19,8 +19,9 @@
   :endpoint "v1/chat/completions"
   :stream t
   :models '(meta-llama/Llama-3.3-70B-Instruct
-	    deepseek-ai/DeepSeek-V3.2-Speciale
-	    deepseek-ai/DeepSeek-V3.1))
+	    Qwen/Qwen3-30B-A3B
+	    MiniMaxAI/MiniMax-M2.5
+	    deepseek-ai/DeepSeek-V3.2))
 
 ;; mistral ai
 (gptel-make-openai "mistral-ai"           ;Any name you want
