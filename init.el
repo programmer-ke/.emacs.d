@@ -104,7 +104,6 @@
 
 ;; Setup solidity
 (require 'solidity-mode)
-(require 'company-solidity)
 
 ;; Setup js-comint for interactive JS dev
 (require 'js-comint)
@@ -142,12 +141,30 @@
 		 (concat "~/digital-garden/" (blog/get-draft-filename))))
 	 (file  "~/projects/digital-garden-blog/org-templates/draft.org"))))
 
-;; enable company mode globally
-(global-company-mode)
+;; configure company mode
+(add-hook 'after-init-hook 'global-company-mode)
+(setq company-idle-delay 0.5)
+
+;; configure solidity-mode
+(require 'company-solidity)
+
+(defun my/eglot-managed-mode-hook ()
+  (if (eglot-managed-p)  ;; eglot still managing the buffer?
+      (setq-local company-backends
+		  '((company-capf :with company-solidity
+				  company-dabbrev-code
+				  company-gtags
+				  company-etags
+				  company-keywords
+				  company-yasnippet
+				  company-dabbrev)))))
+
+(add-hook 'eglot-managed-mode-hook #'my/eglot-managed-mode-hook)
 
 ;; setup yasnippet
 (require 'yasnippet)
 (yas-global-mode 1)
+(add-to-list 'company-backends 'company-yasnippet)
 
 ;; configure automatic modes based on file extension
 (require 'yaml-mode)
