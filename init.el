@@ -164,7 +164,16 @@
 ;; setup yasnippet
 (require 'yasnippet)
 (yas-global-mode 1)
-(add-to-list 'company-backends 'company-yasnippet)
+
+
+;; set default company backends order
+(setq company-backends
+      '((company-dabbrev-code company-gtags company-etags
+			      company-keywords company-yasnippet :separate)
+	company-bbdb company-semantic company-cmake company-capf
+	company-clang company-files
+	company-oddmuse company-dabbrev))
+
 
 ;; configure automatic modes based on file extension
 (require 'yaml-mode)
