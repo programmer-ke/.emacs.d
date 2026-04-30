@@ -20,7 +20,8 @@
 	js2-mode csv-mode company yasnippet yasnippet-snippets
 	markdown-mode ess terraform-mode groovy-mode solidity-mode
 	typescript-mode elfeed org-trello python-black pyvenv gptel
-	dot-env htmlize go-mode protobuf-mode vterm eat company-solidity))
+	dot-env htmlize go-mode protobuf-mode vterm eat company-solidity
+	bison-mode))
 
 ;; Fetch the list of packages available
 ;; Remove the elpa/archives directory to force a refresh
@@ -253,3 +254,8 @@
 		    "v0.23.2" "typescript/src")
 	(tsx "https://github.com/tree-sitter/tree-sitter-typescript"
 	     "v0.23.2" "tsx/src")))
+
+;; activate yacc/lex
+(require 'bison-mode)
+(require 'jison-mode)
+(require 'flex-mode)
