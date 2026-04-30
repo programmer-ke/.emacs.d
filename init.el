@@ -168,11 +168,11 @@
 
 ;; set default company backends order
 (setq company-backends
-      '((company-dabbrev-code company-gtags company-etags
+      '((company-dabbrev-code company-gtags company-etags company-dabbrev
 			      company-keywords company-yasnippet :separate)
 	company-bbdb company-semantic company-cmake company-capf
 	company-clang company-files
-	company-oddmuse company-dabbrev))
+	company-oddmuse))
 
 
 ;; configure automatic modes based on file extension
