@@ -15,3 +15,4 @@ transient/
 bookmarks
 eln-cache
 tree-sitter
+eshell/

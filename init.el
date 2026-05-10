@@ -60,7 +60,7 @@
 (tool-bar-mode -1)
 
 ;; easily start a new named terminal emulator
-(defun start-term (buffer-name)
+(defun start-vterm (buffer-name)
   "Start a bash terminal and rename buffer."
   (interactive "sTerminal emulator name: ")
   (vterm buffer-name))
@@ -71,6 +71,16 @@
   (interactive)
   (let ((current-prefix-arg '(4)))  ; Non-numeric raw prefix for a single C-u
     (call-interactively #'eat)))
+
+;; start ansi term
+(defun start-aterm (buffer-name)
+  "Start a named ansi-term terminal."
+  (interactive "sTerminal name: ")
+  (ansi-term "/bin/bash" buffer-name))
+
+;; Custom keybinding for toggling between char and line terminal modes
+(define-key term-raw-map (kbd "C-c t") #'term-line-mode)
+(define-key term-mode-map (kbd "C-c t") #'term-char-mode)
 
 ;; install js2 as a minor mode just for JS linting
 (add-hook 'js-mode-hook 'js2-minor-mode)

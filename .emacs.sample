@@ -10,7 +10,7 @@
 ;; Start terminals and load saved buffers
 (defun bootstrap-me ()
   (interactive)
-  (start-term "cws")
-  (start-term "other")
-  (start-term "ping")
+  (start-aterm "cws")
+  (start-aterm "other")
+  (start-vterm "ping")
   (desktop-read))
