@@ -6,7 +6,9 @@
         :endpoint "/api/v1/chat/completions"
         :stream t
         :key (dot-env-get 'OPENROUTER_API_KEY)
-        :models '(deepseek/deepseek-v3.2
+        :models '(deepseek/deepseek-v4-flash
+		  deepseek/deepseek-v3.2
+		  deepseek/deepseek-v4-pro
 		  deepseek/deepseek-v3.2-speciale
 		  x-ai/grok-4.1-fast
 		  x-ai/grok-code-fast-1
@@ -18,10 +20,10 @@
   :key (dot-env-get 'AKASH_ML_API_KEY)
   :endpoint "v1/chat/completions"
   :stream t
-  :models '(meta-llama/Llama-3.3-70B-Instruct
+  :models '(deepseek-ai/DeepSeek-V4-Flash
+	    meta-llama/Llama-3.3-70B-Instruct
 	    Qwen/Qwen3-30B-A3B
-	    MiniMaxAI/MiniMax-M2.5
-	    deepseek-ai/DeepSeek-V3.2))
+	    MiniMaxAI/MiniMax-M2.5))
 
 ;; mistral ai
 (gptel-make-openai "mistral-ai"           ;Any name you want
