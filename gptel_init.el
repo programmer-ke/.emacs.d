@@ -1,5 +1,5 @@
 ;; Open Router as the default
-(setq gptel-model   'deepseek/deepseek-v3.2
+(setq gptel-model   'deepseek/deepseek-v4-flash
       gptel-backend
       (gptel-make-openai "openrouter"               ;Any name you want
         :host "openrouter.ai"
