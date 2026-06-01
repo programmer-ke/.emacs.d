@@ -152,6 +152,21 @@
 		 (concat "~/digital-garden/" (blog/get-draft-filename))))
 	 (file  "~/projects/digital-garden-blog/org-templates/draft.org"))))
 
+;; org convenience functions
+(defun my/insert-me-underlined ()
+  "Insert \"_Me_:\" at point."
+  (interactive)
+  (insert "_Me_:"))
+
+;; org convenience functions
+(defun my/insert-ai-underlined ()
+  "Insert \"_AI_:\" at point."
+  (interactive)
+  (insert "_AI_:"))
+
+(define-key org-mode-map (kbd "C-c m") #'my/insert-me-underlined)
+(define-key org-mode-map (kbd "C-c a") #'my/insert-ai-underlined)
+
 ;; configure company mode
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-idle-delay 0.5)
