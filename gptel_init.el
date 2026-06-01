@@ -7,11 +7,10 @@
         :stream t
         :key (dot-env-get 'OPENROUTER_API_KEY)
         :models '(deepseek/deepseek-v4-flash
-		  deepseek/deepseek-v3.2
 		  deepseek/deepseek-v4-pro
 		  deepseek/deepseek-v3.2-speciale
-		  x-ai/grok-4.1-fast
-		  x-ai/grok-code-fast-1
+		  x-ai/x-ai/grok-4.20
+		  x-ai/x-ai/grok-4.3
 		  google/gemini-3-pro-preview)))
 
 
