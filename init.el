@@ -142,15 +142,27 @@
   "Return the name for a draft blog post composition"
   (interactive)
   (let ((name (read-string "Filename: ")))
-    (format "%s.draft.org" name)))
+    (format "%s.org.draft" name)))
+
+;; activate org-mode on draft files created with the function above
+(add-to-list 'auto-mode-alist '("\\.org.draft\\'" . org-mode))
 
 ;; setup org capture templates
 (setq org-capture-templates
+      ;; mark beginning of "d" prefixes
       '(("d" "Templates for the digital garden")
+	;; key "dp", description "post"
+	;; plain - plain text is to be inserted
+	;; target is the file returned by the anonymous function
+	;; template is the file path provided
 	("dp" "post" plain
 	 (file (lambda ()
 		 (concat "~/digital-garden/" (blog/get-draft-filename))))
-	 (file  "~/projects/digital-garden-blog/org-templates/draft.org"))))
+	 (file  "~/projects/digital-garden-blog/org-templates/draft.org"))
+	("dd" "dsa" plain
+	 (file (lambda ()
+		 (concat "~/digital-garden/dsa/" (blog/get-draft-filename))))
+	 (file  "~/projects/digital-garden-blog/org-templates/dsa-draft.org"))))
 
 ;; org convenience functions
 (defun my/insert-me-underlined ()

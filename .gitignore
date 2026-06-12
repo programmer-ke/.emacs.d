@@ -16,4 +16,4 @@ bookmarks
 eln-cache
 tree-sitter
 eshell/
-ielm-history.eld
+*.eld
