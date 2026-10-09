@@ -1,12 +1,13 @@
 ;; Open Router as the default
-(setq gptel-model   'deepseek/deepseek-v4-flash
+(setq gptel-model   'deepseek/deepseek-v4-flash-0731
       gptel-backend
       (gptel-make-openai "openrouter"               ;Any name you want
         :host "openrouter.ai"
         :endpoint "/api/v1/chat/completions"
         :stream t
         :key (dot-env-get 'OPENROUTER_API_KEY)
-        :models '(deepseek/deepseek-v4-flash
+        :models '(deepseek/deepseek-v4-flash-0731
+		  z-ai/glm-5.2
 		  deepseek/deepseek-v4-pro
 		  deepseek/deepseek-v3.2-speciale
 		  x-ai/x-ai/grok-4.20
