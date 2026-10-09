@@ -149,8 +149,20 @@
 
 ;; setup org capture templates
 (setq org-capture-templates
-      ;; mark beginning of "d" prefixes
-      '(("d" "Templates for the digital garden")
+      '(
+	;; mark beginning of "p" prefixes
+	("p" "Templates for programmer.ke")
+	;; key "pb"
+	;; description "blog post"
+	;; plain - plain text is to be inserted
+	;; target is the file returned by the anonymous function
+	;; template is the file path provided
+	("pb" "blog post" plain
+	 (file (lambda ()
+		 (concat "~/projects/programmer.ke/posts/" (blog/get-draft-filename))))
+	 (file "~/projects/programmer.ke/org-templates/draft.org"))
+	;; mark beginning of "d" prefixes
+	("d" "Templates for the digital garden")
 	;; key "dp", description "post"
 	;; plain - plain text is to be inserted
 	;; target is the file returned by the anonymous function
